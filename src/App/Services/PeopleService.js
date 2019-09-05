@@ -1,7 +1,7 @@
 export default class PeopleService {
 
     constructor(peoples) {
-        this.peoples = peoples;
+        this.peoples = peoples || [];
         this.dataSet = {};
     }
 

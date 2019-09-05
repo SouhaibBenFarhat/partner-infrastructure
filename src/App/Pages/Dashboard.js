@@ -31,3 +31,6 @@ export default function Dashboard({peoples = []}) {
     );
 }
 
+Dashboard.defaultProps = {
+    peoples: []
+};

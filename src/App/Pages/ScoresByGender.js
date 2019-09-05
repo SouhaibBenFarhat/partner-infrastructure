@@ -42,3 +42,7 @@ export default function ScoreByGender({peoples = []}) {
         </Grid>
     );
 }
+
+ScoreByGender.defaultProps = {
+    peoples: []
+};

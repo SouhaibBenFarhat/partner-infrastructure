@@ -20,4 +20,3 @@ describe("People service ", () => {
         expect(dataSet.filter(element => element.country === 'CN')[0].score).toEqual(10);
     });
 });
-

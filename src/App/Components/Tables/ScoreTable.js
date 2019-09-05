@@ -76,7 +76,7 @@ export default function ScoreTable({peoples = []}) {
                 </TableHead>
                 <TableBody>
                     {
-                        new PeopleService(peoples).orderBy(orderByColumn).slice(0, rowsNumber).map(row => (
+                        new PeopleService(peoples || []).orderBy(orderByColumn).slice(0, rowsNumber).map(row => (
                             <TableRow key={row.id}>
                                 <TableCell>{row.first_name || '--'}</TableCell>
                                 <TableCell>{row.last_name || '--'}</TableCell>
@@ -91,12 +91,12 @@ export default function ScoreTable({peoples = []}) {
             </Table>
             <div className={classes.seeMore}>
                 <Link color="primary" href="#" onClick={() => setRowsNumber(rowsNumber * 2)}>
-                    {rowsNumber >= peoples.length ? '' : 'See more scores'}
+                    {peoples && rowsNumber >= peoples.length ? '' : 'See more scores'}
                 </Link>
             </div>
             <div>
                 <Link color="primary" href="#" onClick={() => setRowsNumber(peoples.length)}>
-                    {rowsNumber >= peoples.length ? '' : 'Show all'}
+                    {peoples && rowsNumber >= peoples.length ? '' : 'Show all'}
                 </Link>
             </div>
         </React.Fragment>

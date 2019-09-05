@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => {
 });
 
 export default function ScoreByCountry({peoples = []}) {
+
     const classes = useStyles();
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const peopleService = new PeopleService(peoples);
@@ -42,3 +43,7 @@ export default function ScoreByCountry({peoples = []}) {
         </Grid>
     );
 }
+
+ScoreByCountry.defaultProps = {
+    peoples: []
+};
