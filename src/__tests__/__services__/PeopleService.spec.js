@@ -17,6 +17,6 @@ describe("People service ", () => {
         const dataSet = new PeopleService(mockData).scoreByAttribute('country');
         expect(Object.keys(dataSet[0]).length).toBe(2);
         expect(Object.keys(dataSet[0])).toEqual(['country', 'score']);
-        expect(dataSet.filter(element => element.country === 'CN')[0].score).toEqual(10);
+        expect(dataSet.filter(element => element.country === 'CN')[0].score).toEqual('10.00');
     });
 });

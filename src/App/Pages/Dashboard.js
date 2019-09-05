@@ -30,7 +30,3 @@ export default function Dashboard({peoples = []}) {
         </Grid>
     );
 }
-
-Dashboard.defaultProps = {
-    peoples: []
-};

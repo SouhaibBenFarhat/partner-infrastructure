@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const HOST = 'http://localhost:3001/';
+const HOST = 'http://localhost:3000/';
 const CONTENT_TYPE = {json: 'application/json', multipart: 'multipart/form-data'};
 
 const errorMessage = {

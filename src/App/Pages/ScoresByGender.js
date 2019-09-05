@@ -31,7 +31,10 @@ export default function ScoreByGender({peoples = []}) {
         <Grid container spacing={3}>
             <Grid item xs={12}>
                 <Paper className={fixedHeightPaper}>
-                    <Chart data={peopleService.scoreByAttribute('gender')} title={'Score by Gender'}/>
+                    <Chart
+                        dataKey={'gender'}
+                        data={peopleService.scoreByAttribute('gender')}
+                        title={'Score by Gender'}/>
                 </Paper>
             </Grid>
             <Grid item xs={12}>
@@ -42,7 +45,3 @@ export default function ScoreByGender({peoples = []}) {
         </Grid>
     );
 }
-
-ScoreByGender.defaultProps = {
-    peoples: []
-};

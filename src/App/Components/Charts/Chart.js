@@ -3,10 +3,10 @@ import {BarChart, Bar, XAxis, YAxis, Label, ResponsiveContainer, Tooltip} from '
 import Title from './Title';
 
 
-export default function Chart({data}) {
+export default function Chart({data, dataKey, title}) {
     return (
         <React.Fragment>
-            <Title>Score statistics</Title>
+            <Title>{title}</Title>
             <ResponsiveContainer>
                 <BarChart
                     data={data}
@@ -16,7 +16,7 @@ export default function Chart({data}) {
                         bottom: 0,
                         left: 24,
                     }}>
-                    <XAxis dataKey="country"/>
+                    <XAxis dataKey={dataKey}/>
                     <YAxis>
                         <Label angle={270} position="left" style={{textAnchor: 'middle'}}>
                             Average score

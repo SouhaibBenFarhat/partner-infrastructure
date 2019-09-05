@@ -55,7 +55,7 @@ export default class PeopleService {
                 return n + (person[attr] === dim);
             }, 0);
             const target = dataSet.find(element => element[attr] === dim);
-            target.score = target.score / occurrences
+            target.score = (target.score / occurrences).toFixed(2)
         });
         return dataSet;
     }

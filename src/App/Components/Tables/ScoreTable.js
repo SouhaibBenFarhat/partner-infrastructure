@@ -94,7 +94,7 @@ export default function ScoreTable({peoples = []}) {
                     {peoples && rowsNumber >= peoples.length ? '' : 'See more scores'}
                 </Link>
             </div>
-            <div>
+            <div className={classes.seeMore}>
                 <Link color="primary" href="#" onClick={() => setRowsNumber(peoples.length)}>
                     {peoples && rowsNumber >= peoples.length ? '' : 'Show all'}
                 </Link>

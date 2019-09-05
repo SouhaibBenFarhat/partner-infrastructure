@@ -32,7 +32,10 @@ export default function ScoreByCountry({peoples = []}) {
         <Grid container spacing={3}>
             <Grid item xs={12}>
                 <Paper className={fixedHeightPaper}>
-                    <Chart data={peopleService.scoreByAttribute('country')} title={'Score by Count'}/>
+                    <Chart
+                        dataKey={'country'}
+                        data={peopleService.scoreByAttribute('country')}
+                        title={'Score by Country'}/>
                 </Paper>
             </Grid>
             <Grid item xs={12}>
@@ -43,7 +46,3 @@ export default function ScoreByCountry({peoples = []}) {
         </Grid>
     );
 }
-
-ScoreByCountry.defaultProps = {
-    peoples: []
-};

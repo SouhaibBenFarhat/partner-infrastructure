@@ -114,17 +114,20 @@ export default function App() {
                     <Container maxWidth="lg" className={classes.container}>
                         <Suspense fallback={<div/>}>
                             <Switch>
-                                <Route exact
-                                       path="/"
-                                       render={props => (<Dashboard peoples={peoples} {...props} />)}
+                                <Route
+                                    exact
+                                    path="/"
+                                    render={props => (<Dashboard peoples={peoples} {...props} />)}
                                 />
-                                <Route exact
-                                       path="/score-by-country"
-                                       render={props => (<ScoreByCountry peoples={peoples} {...props} />)}
+                                <Route
+                                    exact
+                                    path="/score-by-country"
+                                    render={props => (<ScoreByCountry peoples={peoples} {...props} />)}
                                 />
-                                <Route exact
-                                       path="/score-by-gender"
-                                       render={props => (<ScoreByGender peoples={peoples} {...props}/>)}
+                                <Route
+                                    exact
+                                    path="/score-by-gender"
+                                    render={props => (<ScoreByGender peoples={peoples} {...props}/>)}
                                 />
                             </Switch>
                         </Suspense>
