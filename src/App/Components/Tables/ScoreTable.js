@@ -1,5 +1,4 @@
 /* eslint-disable no-script-url */
-
 import React, {useState} from 'react';
 import Link from '@material-ui/core/Link/index';
 import {makeStyles} from '@material-ui/core/styles/index';

@@ -7,6 +7,12 @@ export default class PeopleService {
 
     orderBy(prop) {
         return this.peoples.sort((a, b) => {
+                if (a[prop] === null) {
+                    return -1;
+                }
+                if (b[prop] === null) {
+                    return 1
+                }
                 if (a[prop] < b[prop]) {
                     return -1;
                 }
