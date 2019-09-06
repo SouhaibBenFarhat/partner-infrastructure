@@ -9,6 +9,7 @@ import TableHead from '@material-ui/core/TableHead/index';
 import TableRow from '@material-ui/core/TableRow/index';
 import Title from '../Charts/Title';
 import PeopleService from "../../Services/PeopleService";
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
     seeMore: {
@@ -21,6 +22,12 @@ const useStyles = makeStyles(theme => ({
     },
     defaultColumn: {
         cursor: 'pointer'
+    },
+    resetLink: {
+        textAlign: 'right'
+    },
+    resetLinkDisabled: {
+        color: 'grey'
     }
 }));
 
@@ -29,45 +36,58 @@ export default function ScoreTable({peoples = []}) {
     const [rowsNumber, setRowsNumber] = useState(20);
     const [orderByColumn, setOrderByColumn] = useState(null);
 
+    const resetFilters = () => {
+        setOrderByColumn(null)
+    };
+
     return (
         <React.Fragment>
-            <Title>Scores listing</Title>
+            <Title>
+                Scores listing
+            </Title>
+            <Link
+                className={clsx(classes.resetLink, !orderByColumn && classes.resetLinkDisabled)}
+                color="primary"
+                href="#"
+                onClick={resetFilters}>
+                Reset filters
+            </Link>
             <Table size="small">
                 <TableHead>
                     <TableRow>
                         <TableCell onClick={() => setOrderByColumn('first_name')}>
                             <span
-                                className={(orderByColumn === 'first_name') ? classes.selectedColumn : classes.defaultColumn}>
+                                className={clsx(classes.defaultColumn, (orderByColumn === 'first_name') && classes.selectedColumn)}>
                             First name
                             </span>
                         </TableCell>
                         <TableCell onClick={() => setOrderByColumn('last_name')}>
                             <span
-                                className={(orderByColumn === 'last_name') ? classes.selectedColumn : classes.defaultColumn}>
+                                className={clsx(classes.defaultColumn, (orderByColumn === 'last_name') && classes.selectedColumn)}>
                             Last name
                             </span>
                         </TableCell>
                         <TableCell onClick={() => setOrderByColumn('gender')}>
                             <span
-                                className={(orderByColumn === 'gender') ? classes.selectedColumn : classes.defaultColumn}>
+                                className={clsx(classes.defaultColumn, (orderByColumn === 'gender') && classes.selectedColumn)}>
                             Gender
                             </span>
                         </TableCell>
                         <TableCell onClick={() => setOrderByColumn('city')}>
                             <span
-                                className={(orderByColumn === 'city') ? classes.selectedColumn : classes.defaultColumn}>
+                                className={clsx(classes.defaultColumn, (orderByColumn === 'city') && classes.selectedColumn)}>
                             City
                             </span>
                         </TableCell>
                         <TableCell onClick={() => setOrderByColumn('country')}>
                             <span
-                                className={(orderByColumn === 'country') ? classes.selectedColumn : classes.defaultColumn}>
+                                className={clsx(classes.defaultColumn, (orderByColumn === 'country') && classes.selectedColumn)}>
                             Country
                             </span>
                         </TableCell>
                         <TableCell onClick={() => setOrderByColumn('score')} align="right">
                             <span
-                                className={(orderByColumn === 'score') ? classes.selectedColumn : classes.defaultColumn}>
+                                className={clsx(classes.defaultColumn, (orderByColumn === 'score') && classes.selectedColumn)}>
                             Score
                             </span>
                         </TableCell>
@@ -75,7 +95,7 @@ export default function ScoreTable({peoples = []}) {
                 </TableHead>
                 <TableBody>
                     {
-                        new PeopleService(peoples || []).orderBy(orderByColumn).slice(0, rowsNumber).map(row => (
+                        new PeopleService(peoples).orderBy(orderByColumn).slice(0, rowsNumber).map(row => (
                             <TableRow key={row.id}>
                                 <TableCell>{row.first_name || '--'}</TableCell>
                                 <TableCell>{row.last_name || '--'}</TableCell>

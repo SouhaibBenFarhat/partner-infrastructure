@@ -18,12 +18,18 @@ export default function Chart({data, dataKey, title}) {
                     }}>
                     <XAxis dataKey={dataKey}/>
                     <YAxis>
-                        <Label angle={270} position="left" style={{textAnchor: 'middle'}}>
+                        <Label
+                            angle={270}
+                            position="left"
+                            style={{textAnchor: 'middle'}}>
                             Average score
                         </Label>
                     </YAxis>
                     <Tooltip/>
-                    <Bar type="monotone" dataKey="score" fill="#556CD6"/>
+                    <Bar
+                        type="monotone"
+                        dataKey="score"
+                        fill="#556CD6"/>
                 </BarChart>
             </ResponsiveContainer>
         </React.Fragment>
